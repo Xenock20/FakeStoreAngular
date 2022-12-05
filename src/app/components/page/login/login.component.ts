@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(private router: Router) { }
+
+  userLogin = {
+    username: '',
+    password: ''
+  }
+
+  onLogin(): void {
+    console.log(this.userLogin);
+    this.router.navigate(['/home']);
+  }
 }

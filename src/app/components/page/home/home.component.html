@@ -1,7 +1,38 @@
 <div class="cont-home">
-  <div class="category">
-    <ul>
-      <li class="category-item"><a href=""></a></li>
-    </ul>
+
+  <div class="home" *ngIf="home">
+    <div class="loading" *ngIf="loading">
+      <img src="../../../../assets/img/loading.gif" alt="loading">
+    </div>
+
+    <div class="category" *ngIf="categories.length > 0">
+
+      <h2>Categories</h2>
+
+      <ul>
+        <li class="category-item"><button (click)="onProductAll()">All products</button></li>
+        <li class="category-item" *ngFor="let category of categories; index as i">
+          <button (click)="onProductCategory(category)">{{category}}</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="loading-ball" *ngIf="loadingBall && !loading">
+      <img src="../../../../assets/img/loading.gif" alt="loading">
+    </div>
+
+    <div class="products" *ngIf="products.length > 0">
+      <a (click)="onProduct(i)" class="product" *ngFor="let product of products; index as i">
+        <img [src]="product.image" alt="img-product" width="100">
+        <h5>{{product.title}}</h5>
+        <span>${{product.price}}</span>
+      </a>
+    </div>
   </div>
+
+  <div class="cont-product" *ngIf="!home">
+    <button (click)="onHome()">Return</button>
+    <app-product  [product]="product"></app-product>
+  </div>
+
 </div>

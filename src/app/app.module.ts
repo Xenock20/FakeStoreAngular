@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/page/register/register.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/page/not-found/not-found.component';
 import { CartComponent } from './components/page/cart/cart.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CartComponent } from './components/page/cart/cart.component';
     RegisterComponent,
     NavbarComponent,
     NotFoundComponent,
-    CartComponent
+    CartComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

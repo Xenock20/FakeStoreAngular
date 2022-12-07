@@ -18,5 +18,22 @@ export class ProductComponent {
       rate: 0,
       count: 0,
     },
-  };
+  }
+
+  listBuy: Product[] = []
+
+
+  onBuy(): void {
+
+    const data = sessionStorage.getItem('product')
+
+    if (!data) {
+      this.listBuy.push(this.product)
+      sessionStorage.setItem('product', JSON.stringify(this.listBuy))
+    } else {
+      this.listBuy = JSON.parse(data)
+      this.listBuy.push(this.product)
+      sessionStorage.setItem('product', JSON.stringify(this.listBuy))
+    }
+  }
 }

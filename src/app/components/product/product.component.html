@@ -1,10 +1,9 @@
-<div>
-  <img [src]="product.image" alt="" width="100">
+<div class="product">
+  <img [src]="product.image" alt="">
   <div class="info">
-    <span>{{product.title}}</span>
-    <p>{{product.description}}</p>
-    <p>${{product.price}}</p>
+    <h2>{{product.title}}</h2>
+    <span class="des">{{product.description}}</span>
+    <p class="price">${{product.price}}</p>
+    <button (click)="onBuy()">Buy</button>
   </div>
-
-  <button (click)="onBuy()">Buy</button>
 </div>

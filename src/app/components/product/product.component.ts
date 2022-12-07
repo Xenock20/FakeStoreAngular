@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
 
 @Component({
@@ -7,6 +8,11 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent {
+
+
+  constructor(private router: Router) { }
+
+
   @Input() product: Product = {
     id: 0,
     title: '',
@@ -35,5 +41,7 @@ export class ProductComponent {
       this.listBuy.push(this.product)
       sessionStorage.setItem('product', JSON.stringify(this.listBuy))
     }
+
+    this.router.navigateByUrl('/cart')
   }
 }

@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  listCart: any = [];
+
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('product'))
+    const data = sessionStorage.getItem('product')
+
+    if(data){
+      this.listCart = JSON.parse(data)
+    }
+
+    console.log(this.listCart)
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-cart',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  constructor(){}
+
   listCart: any = [];
+  price = 0;
 
   ngOnInit(): void {
     const data = sessionStorage.getItem('product')
@@ -16,6 +19,17 @@ export class CartComponent implements OnInit {
       this.listCart = JSON.parse(data)
     }
 
-    console.log(this.listCart)
+    this.listCart.forEach((element: any) => {
+      this.price += parseFloat(element.price)
+    });
+  }
+
+  onDelete(i: number): void {
+    this.listCart.splice(i,1)
+    sessionStorage.setItem('product', JSON.stringify(this.listCart))
+    this.price = 0
+    this.listCart.forEach((element: any) => {
+      this.price += parseFloat(element.price)
+    });
   }
 }

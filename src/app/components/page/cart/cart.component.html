@@ -1,8 +1,18 @@
 <div class="cart">
-  <h1>Carrito</h1>
-  <ul>
-    <li *ngFor="let product of listCart">
-      <span>{{product.title}}</span>
+  <ul class="list-cart">
+    <li *ngFor="let product of listCart; index as i">
+      <img [src]="product.image" alt="">
+      <div>
+        <span>{{product.title}}</span>
+        <p>${{product.price}}</p>
+      </div>
+      <button (click)="onDelete(i)">X</button>
     </li>
+    <li class="null-product" *ngIf="listCart.length == 0"><a routerLink="/home">Your cart is empty and add products</a></li>
+    <li class="add-product" *ngIf="listCart.length > 0"><a routerLink="/home">Add another product</a></li>
   </ul>
+  <div class="buy">
+    <h2>Total: ${{price}}</h2>
+    <button>Buy</button>
+  </div>
 </div>

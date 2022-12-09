@@ -18,5 +18,6 @@ export class LoginComponent {
   onLogin(): void {
     console.log(this.userLogin);
     this.router.navigate(['/home']);
+    sessionStorage.setItem('token-login', 'token');
   }
 }

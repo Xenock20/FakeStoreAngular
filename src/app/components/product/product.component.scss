@@ -41,9 +41,15 @@
 
 @media screen and (min-width: 768px) {
   .product{
+    margin: 0 auto;
+    width: 75%;
     flex-direction: row;
+    justify-content: center;
     .info{
-      width: 500px;
+      width: 50%;
+      .des{
+        width: 50%;
+      }
     }
   }
 }
